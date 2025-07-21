@@ -1,0 +1,54 @@
+# HealthKart Influencer Campaign Dashboard
+
+This project is a solution to the HealthKart Intern Assignment. [cite_start]It provides an open-source tool built with Python and Streamlit to track, visualize, and analyze the performance of influencer marketing campaigns. [cite: 9]
+
+##  Objective
+
+The primary goal is to build a dashboard that shows:
+- [cite_start]Campaign performance via metrics like Incremental ROAS. [cite: 5, 6]
+- Detailed influencer insights.
+- [cite_start]Payout tracking and overall ROI. [cite: 7]
+
+##  Features
+
+- [cite_start]**Data Simulation**: Generates realistic, interconnected datasets for influencers, posts, tracking data, and payouts. [cite: 12]
+- [cite_start]**Interactive Dashboard**: A web-based UI to explore the data. [cite: 24]
+- [cite_start]**Core Metrics**: Calculates and displays Total Spend, Total Revenue, and Incremental ROAS. [cite: 19]
+- [cite_start]**Dynamic Filtering**: Allows users to filter the entire dashboard by campaign/brand, platform, and influencer category. [cite: 20]
+- [cite_start]**Actionable Insights**: Includes visualizations for top influencers, performance by platform, and performance by category to identify trends. [cite: 21]
+
+## 🛠️ Setup & How to Run
+
+1.  **Clone the repository:**
+    ```bash
+    git clone <your-repo-url>
+    cd <your-repo-folder>
+    ```
+
+2.  **Install dependencies:**
+    Make sure you have Python 3.8+ installed.
+    ```bash
+    pip install -r requirements.txt
+    ```
+    (Note: `requirements.txt` should contain `streamlit`, `pandas`, `numpy`, and `faker`).
+
+3.  **Generate Simulated Data:**
+    Run the simulation script to create the necessary CSV files.
+    ```bash
+    python simulate_data.py
+    ```
+
+4.  **Run the Streamlit Dashboard:**
+    ```bash
+    streamlit run app.py
+    ```
+    The application will open in your default web browser.
+
+##  Key Assumptions
+
+-   [cite_start]**Incremental ROAS Calculation**: The assignment specifically asks for *Incremental ROAS*. [cite: 6] For this project, a key assumption is made:
+    **All revenue recorded in the `tracking_data.csv` is considered purely incremental.
+    ** This implies that these sales were directly generated through influencer-specific links or coupon codes and would not have occurred otherwise.
+    Therefore, the calculated ROAS (`Total Revenue / Total Payout`) represents the **Incremental ROAS** for the influencer channel.
+-   **Data Simulation**: The simulated data is designed to be realistic but is not real-world data. 
+    The relationships (e.g., higher post likes leading to more orders) are based on logical assumptions.
