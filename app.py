@@ -66,23 +66,23 @@ selected_category = st.sidebar.selectbox("Select Influencer Category", categorie
 
 
 # --- Filtering Logic ---
-# Filter tracking data based on selection
+# Start with a copy of the main performance dataframe
+filtered_performance = performance_df.copy()
+
+# Apply Campaign/Brand filter
 if selected_campaign != 'All':
-    filtered_tracking = tracking[tracking['campaign'] == selected_campaign]
-else:
-    filtered_tracking = tracking
+    # Find which influencers were part of the selected campaign
+    influencer_ids_in_campaign = tracking[tracking['campaign'] == selected_campaign]['influencer_id'].unique()
+    # Filter the main dataframe to only include those influencers
+    filtered_performance = filtered_performance[filtered_performance['influencer_id'].isin(influencer_ids_in_campaign)]
 
-# Get the list of influencer_ids that match the platform and category filters
-filtered_influencer_ids = influencers[
-    (influencers['platform'] == selected_platform if selected_platform != 'All' else True) &
-    (influencers['category'] == selected_category if selected_category != 'All' else True)
-]['influencer_id']
+# Apply Platform filter
+if selected_platform != 'All':
+    filtered_performance = filtered_performance[filtered_performance['platform'] == selected_platform]
 
-# Apply all filters to the main performance dataframe
-filtered_performance = performance_df[
-    performance_df['influencer_id'].isin(filtered_tracking['influencer_id']) &
-    performance_df['influencer_id'].isin(filtered_influencer_ids)
-]
+# Apply Influencer Category filter
+if selected_category != 'All':
+    filtered_performance = filtered_performance[filtered_performance['category'] == selected_category]
 
 
 # --- Main Dashboard ---
