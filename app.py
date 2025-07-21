@@ -5,7 +5,7 @@ import numpy as np
 # --- Page Configuration ---
 st.set_page_config(
     page_title="HealthKart Influencer Dashboard",
-    page_icon="💪",
+    
     layout="wide"
 )
 
