@@ -10,7 +10,7 @@ st.set_page_config(
 )
 
 # --- Title ---
-st.title("🚀 HealthKart Influencer Campaign Dashboard")
+st.title("HealthKart Influencer Campaign Dashboard")
 st.markdown("Track and visualize the ROI of influencer marketing campaigns.")
 
 # --- Data Loading ---
